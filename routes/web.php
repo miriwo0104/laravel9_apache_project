@@ -14,9 +14,9 @@ use App\Http\Controllers\FilePostController;
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-}); */
+});
 
 
 /* Route::post('/api/file_post', function(){
