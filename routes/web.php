@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilePostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
+}); */
+
+
+/* Route::post('/api/file_post', function(){
+    return 'OK';
+}); */
+Route::post('/api/file_post', [FilePostController::class, 'filePost']);
+Route::get('/api/get_test', function(){
+    return 'OK';
 });
