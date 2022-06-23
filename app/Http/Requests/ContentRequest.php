@@ -26,7 +26,7 @@ class ContentRequest extends FormRequest
     public function rules()
     {
         return [
-            'array' => ['sometimes', 'required', 'array', 'size:1'],
+            'array' => ['sometimes', 'required', 'array', 'min:1'],
         ];
     }
 
