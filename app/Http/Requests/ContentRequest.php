@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -34,7 +36,6 @@ class ContentRequest extends FormRequest
     {
         $response['errors']  = $validator->errors()->toArray();
 
-        throw new HttpResponseException(response()->json($response));
-        
+        throw new HttpResponseException(response()->json($response));        
     }
 }
