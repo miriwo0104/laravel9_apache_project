@@ -28,4 +28,23 @@ class ContentController extends Controller
             return new JsonResponse($result, JsonResponse::HTTP_CREATED);
         });
     }
+
+    public function update($request)
+    {
+        return DB::transaction(function () use ($request) {
+            $contentEloquent = Content::find($request->contentId);
+            $contentEloquent->content = $request->content;
+            $contentEloquent->update();
+
+            $content = [
+                'contentId' => $contentEloquent->id,
+                'content' => $contentEloquent->content,
+            ];
+
+            return new JsonResponse(
+                json_encode($content),
+                JsonResponse::HTTP_ACCEPTED,
+            );
+        });
+    }
 }
