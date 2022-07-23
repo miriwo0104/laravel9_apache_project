@@ -36,15 +36,12 @@ class ContentController extends Controller
             $contentEloquent->content = $request->content;
             $contentEloquent->update();
 
-            $content = [
+            $result = [
                 'contentId' => $contentEloquent->id,
                 'content' => $contentEloquent->content,
             ];
 
-            return new JsonResponse(
-                json_encode($content),
-                JsonResponse::HTTP_ACCEPTED,
-            );
+            return new JsonResponse($result, JsonResponse::HTTP_ACCEPTED);
         });
     }
 }
