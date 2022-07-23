@@ -14,13 +14,18 @@ class ContentController extends Controller
     ) {
         return DB::transaction(function () use ($request) {
 
-            Content::create(
+            $contentEloquent = Content::create(
                 [
                     'content' => $request->content
                 ]
             );
+
+            $result = [
+                'contentId' => $contentEloquent->id,
+                'content' => $contentEloquent->content,
+            ];
         
-            return new JsonResponse('OK', JsonResponse::HTTP_CREATED);
+            return new JsonResponse($result, JsonResponse::HTTP_CREATED);
         });
     }
 }
