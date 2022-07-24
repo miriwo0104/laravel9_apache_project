@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatchContentRequest;
 use App\Http\Requests\PostContentRequest;
 use App\Models\Content;
 use Illuminate\Http\JsonResponse;
@@ -11,7 +12,7 @@ class ContentController extends Controller
 {
     public function create(
         PostContentRequest $request
-    ) {
+    ): JsonResponse {
         return DB::transaction(function () use ($request) {
 
             $contentEloquent = Content::create(
@@ -29,8 +30,9 @@ class ContentController extends Controller
         });
     }
 
-    public function update($request)
-    {
+    public function update(
+        PatchContentRequest $request
+    ): JsonResponse {
         return DB::transaction(function () use ($request) {
             $contentEloquent = Content::find($request->contentId);
             $contentEloquent->content = $request->content;
