@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/content', [ContentController::class, 'create']);
+Route::patch('/content', [ContentController::class, 'update']);
