@@ -43,7 +43,7 @@ class ContentController extends Controller
                 'content' => $contentEloquent->content,
             ];
 
-            return new JsonResponse($result, JsonResponse::HTTP_ACCEPTED);
+            return new JsonResponse($result, JsonResponse::HTTP_OK);
         });
     }
 }
