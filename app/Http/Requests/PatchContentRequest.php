@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\ApiBaseFormRequest;
 
-class PostContentRequest extends ApiBaseFormRequest
+class PatchContentRequest extends ApiBaseFormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,6 +14,7 @@ class PostContentRequest extends ApiBaseFormRequest
     public function rules()
     {
         return [
+            'contentId' => ['required'],
             'content' => ['required']
         ];
     }

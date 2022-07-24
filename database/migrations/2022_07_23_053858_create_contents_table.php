@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('content', 255)->comment('投稿内容');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
